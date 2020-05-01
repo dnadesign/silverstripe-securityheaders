@@ -1,0 +1,8 @@
+---
+Name: silverstripe-securityheaders
+After:
+  - '*'
+---
+PageController:
+  extensions:
+    - DNADesign\SecurityHeaders\SecurityHeadersExtension

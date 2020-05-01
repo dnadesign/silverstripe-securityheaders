@@ -1,0 +1,5 @@
+{
+    "name": "dnadesign/silverstripe-securityheaders",
+    "description": "Enable setting of content security policy (CSP)",
+    "license": "BSD-3-Clause"
+}
