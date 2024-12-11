@@ -16,8 +16,6 @@ DNADesign\SecurityHeaders\SecurityHeadersExtension:
     - PageType
   headers:
     - ...
-  x_headers_map:
-    - ...
   whitelist:
     - ...
 ```
@@ -32,15 +30,8 @@ DNADesign\SecurityHeaders\SecurityHeadersExtension:
     X-Frame-Options: 'SAMEORIGIN'
     Access-Control-Allow-Origin: 'self'
     X-Content-Type-Options: nosniff
-    x-xss-protection: 1; mode=block
     Referrer-Policy: strict-origin-when-cross-origin
     Content-Security-Policy: whitelist
-  x_headers_map:
-    Content-Security-Policy:
-      - X-Content-Security-Policy
-      - X-WebKit-CSP
-    Frame-Options:
-      - X-Frame-Options
   whitelist:
     default-src:
       data:
