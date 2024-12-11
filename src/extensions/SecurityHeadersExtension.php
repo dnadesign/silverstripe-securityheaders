@@ -23,7 +23,6 @@ class SecurityHeadersExtension extends Extension
     if (!in_array($this->owner->data(), $exceptions)) {
       if (!Director::isDev()) {
         $headersToSend = (array) Config::inst()->get(SecurityHeadersExtension::class, 'headers');
-        $xHeaderMap = (array) Config::inst()->get(SecurityHeadersExtension::class, 'x_headers_map');
         $whitelist = (array) Config::inst()->get(SecurityHeadersExtension::class, 'whitelist');
         $whitelistValue = null;
 
@@ -45,22 +44,8 @@ class SecurityHeadersExtension extends Extension
           } else {
             $response->addHeader($header, $value);
           }
-
-          if (isset($xHeaderMap[$header])) {
-            foreach ($xHeaderMap[$header] as $xHeader) {
-              if ($header === 'Content-Security-Policy') {
-                if ($whitelistValue) {
-                  $response->addHeader($xHeader, $whitelistValue);
-                }
-              } else {
-                $response->addHeader($xHeader, $value);
-              }
-            }
-          }
         }
       }
-
-      $response->removeHeader('X-Content-Security-Policy'); // this causes issues in some browsers
     }
   }
 
