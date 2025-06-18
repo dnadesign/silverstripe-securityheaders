@@ -74,9 +74,28 @@ DNADesign\SecurityHeaders\SecurityHeadersExtension:
         - '''self'''
 ```
 
+## Environment variables
+
+Environment varibles can be used by wrapping with `
+```yml
+DNADesign\SecurityHeaders\SecurityHeadersExtension:
+  whitelist:
+    connect-src:
+      data:
+        - "'self'"
+        - "`ENVIRONMENT_VARIABLE_EXAMPLE`"
+```
+
+
 ## Testing
 
 You can test your CSP rules with [CSP Evaluator](https://chrome.google.com/webstore/detail/csp-evaluator/fjohamlofnakbnbfjkohkbdigoodcejf) and [Caspr:Enforcer](https://chrome.google.com/webstore/detail/caspr-enforcer/fekcdjkhlbjngkimekikebfegbijjafd)
+
+For local testing you can force the CSP and headers to be added by setting force_headers_in_dev to true
+```yml
+DNADesign\SecurityHeaders\SecurityHeadersExtension:
+    force_headers_in_dev: true
+```
 
 ## References
 This module was based on [guttmann/silverstripe-security-headers](https://github.com/guttmann/silverstripe-security-headers)
